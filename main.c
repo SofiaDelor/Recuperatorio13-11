@@ -1,27 +1,60 @@
-/* ejercicio 51 - turno mañana - octubre 2026
-función swap con punteros
- */
-#include <stdio.h>
-void swap(int*, int*);
-int main(void) {
-    //dos variables con valores, pueden preguntar al usuario, usar rand o asignar
-    int x = 10;
-    int y = 22;
-    //version 1 punteros explícitos
-    int* ptrX = &x;
-    int* ptrY = &y;
-    swap(ptrX,ptrY);
+#include "Inicio_Estructura.h"
+#include "CaseA_Agregar.h"
+#include "CaseB_ListarTodo.h"
+#include "CaseC_ListarCondicion.h"
+#include "CaseD_BuscarEspecial.h"
+#include "CaseE_DividirBooleano.h"
 
-    // versión 2 - pasando direcciones directamente
-    swap(&x, &y);
-
-    //verificar swap
-    printf("x = %d, y = %d\n", x, y);
-
-  return 0;
+static inline void mostrar_menu(void) {
+    printf("\n======================================================\n");
+    printf("         SISTEMA DE GESTION DE EXCURSIONES            \n");
+    printf("======================================================\n");
+    printf("1. Agregar un registro al archivo\n");
+    printf("2. Listar todo el archivo por pantalla\n");
+    printf("3. Listar registros por condicion\n");
+    printf("4. Busqueda especifica \n");
+    printf("5. Dividir archivo segun disponibilidad\n");
+    printf("6. Salir del sistema\n");
+    printf("======================================================\n");
 }
-void swap(int* a, int* b) {
-//intercambiar valores
 
-    return;
+int main(void) {
+    int opcion = 0;
+
+    do {
+        mostrar_menu();
+        printf("Seleccione una opcion (1-6): ");
+        if (scanf("%d", &opcion) != 1) {
+            printf("[ERROR] Entrada invalida. Por favor ingrese un numero.\n");
+            limpiar_buffer();
+            continue;
+        }
+        limpiar_buffer();
+
+        switch (opcion) {
+        case 1:
+            agregar_registro(ARCHIVO_ORIGEN);
+            break;
+        case 2:
+            listar_todo(ARCHIVO_ORIGEN);
+            break;
+        case 3:
+            listar_por_condicion(ARCHIVO_ORIGEN);
+            break;
+        case 4:
+            buscar_especifica(ARCHIVO_ORIGEN);
+            break;
+        case 5:
+            dividir_archivo_por_booleano(ARCHIVO_ORIGEN, ARCHIVO_DISPONIBLES, ARCHIVO_NO_DISPONIBLES);
+            break;
+        case 6:
+            printf("\nSaliendo del sistema de gestion...\n");
+            break;
+        default:
+            printf("\n[ERROR] Opcion fuera de rango (1-6).\n");
+            break;
+        }
+    } while (opcion != 6);
+
+    return 0;
 }
