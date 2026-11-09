@@ -3,7 +3,7 @@
 
 #include "Inicio_Estructura.h"
 
-void buscar_especifica(const char* nombre_archivo) {
+static inline void buscar_especifica(const char* nombre_archivo) {
     FILE* archivo = fopen(nombre_archivo, "r");
     if (archivo == NULL) {
         printf("[ERROR] No se pudo abrir el archivo '%s'.\n", nombre_archivo);
