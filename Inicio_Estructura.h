@@ -20,8 +20,8 @@ typedef struct {
     int cant_personas;          // Entero
     bool disponible;            // Booleano
 } Excursion;
-// Función auxiliar para limpiar el búfer de entrada
-void limpiar_buffer(void) {
+
+static inline void limpiar_buffer(void) {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
