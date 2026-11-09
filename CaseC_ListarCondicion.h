@@ -3,7 +3,7 @@
 
 #include "Inicio_Estructura.h"
 
-void listar_por_condicion(const char* nombre_archivo) {
+static inline void listar_por_condicion(const char* nombre_archivo) {
     FILE* archivo = fopen(nombre_archivo, "r");
     if (archivo == NULL) {
         printf("[ERROR] No se pudo abrir el archivo '%s'.\n", nombre_archivo);
