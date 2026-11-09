@@ -3,7 +3,7 @@
 
 #include "Inicio_Estructura.h"
 
-void dividir_archivo_por_booleano(const char* origen, const char* dest_true, const char* dest_false) {
+static inline void dividir_archivo_por_booleano(const char* origen, const char* dest_true, const char* dest_false) {
     FILE* f_origen = fopen(origen, "r");
     if (f_origen == NULL) {
         printf("[ERROR] No se pudo abrir el archivo de origen '%s'.\n", origen);
