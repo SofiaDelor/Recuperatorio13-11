@@ -1,7 +1,7 @@
 #ifndef CASED_BUSCARESPECIAL_H
 #define CASED_BUSCARESPECIAL_H
 
-#include "Inicio_Estructura.h"
+#include "Inicio_Estructura (4).h"
 
 static inline void buscar_especifica(const char* nombre_archivo) {
     FILE* archivo = fopen(nombre_archivo, "r");
@@ -13,15 +13,15 @@ static inline void buscar_especifica(const char* nombre_archivo) {
     char buscado[TAM_STRING];
     printf("\n--- BUSQUEDA ESPECIFICA ---\n");
     printf("Ingrese la fecha de la excursion a buscar (DD/MM): ");
-    scanf("%49s", buscado);
+    scanf_s("%49s", buscado, (unsigned)sizeof buscado);
     limpiar_buffer();
 
     Excursion reg;
     int disp_int;
     bool encontrado = false;
 
-    while (fscanf(archivo, "%49s %c %f %d %d",
-        reg.fecha, &reg.tipo_excursion, &reg.presupuesto, &reg.cant_personas, &disp_int) == 5) {
+    while (fscanf_s(archivo, "%49s %c %f %d %d",
+        reg.fecha, (unsigned)sizeof reg.fecha, &reg.tipo_excursion, (unsigned)sizeof reg.tipo_excursion, &reg.presupuesto, &reg.cant_personas, &disp_int) == 5) {
         if (strcmp(reg.fecha, buscado) == 0) {
             reg.disponible = (bool)disp_int;
             printf("\n[REGISTRO ENCONTRADO]\n");
