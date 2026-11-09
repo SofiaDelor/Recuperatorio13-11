@@ -35,7 +35,7 @@ void buscar_especifica(const char* nombre_archivo) {
     }
 
     if (!encontrado) {
-        printf("\n[INFO] No se encontro ningún registro para la fecha '%s'.\n", buscado);
+        printf("\n[INFO] No se encontro ningun registro para la fecha '%s'.\n", buscado);
     }
 
     fclose(archivo);
