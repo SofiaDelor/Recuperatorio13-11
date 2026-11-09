@@ -26,18 +26,18 @@ void listar_por_condicion(const char* nombre_archivo) {
     int coincidentes = 0;
 
     printf("\n--- REGISTROS CON PRESUPUESTO >= $%.2f ---\n", min_presupuesto);
-    printf("%-20s %-6s %-10s %-15s %-12s\n", "CLIENTE", "TIPO", "PERSONAS", "PRESUPUESTO", "DISPONIBLE");
+    printf("%-12s %-6s %-15s %-10s %-12s\n", "FECHA", "TIPO", "PRESUPUESTO", "PERSONAS", "DISPONIBLE");
     printf("-------------------------------------------------------------------------\n");
 
-    while (fscanf(archivo, "%49s %c %d %f %d",
-        reg.cliente, &reg.tipo_excursion, &reg.cant_personas, &reg.presupuesto, &disp_int) == 5) {
+    while (fscanf(archivo, "%49s %c %f %d %d",
+        reg.fecha, &reg.tipo_excursion, &reg.presupuesto, &reg.cant_personas, &disp_int) == 5) {
         if (reg.presupuesto >= min_presupuesto) {
             reg.disponible = (bool)disp_int;
-            printf("%-20s %-6c %-10d $%-14.2f %-12s\n",
-                reg.cliente,
+            printf("%-12s %-6c $%-14.2f %-10d %-12s\n",
+                reg.fecha,
                 reg.tipo_excursion,
-                reg.cant_personas,
                 reg.presupuesto,
+                reg.cant_personas,
                 reg.disponible ? "SI" : "NO");
             coincidentes++;
         }
