@@ -1,7 +1,7 @@
 #ifndef CASEA_AGREGAR_H
 #define CASEA_AGREGAR_H
 
-#include "Inicio_Estructura.h"
+#include "Inicio_Estructura (4).h"
 
 static inline void agregar_registro(const char* nombre_archivo) {
     FILE* archivo = fopen(nombre_archivo, "a");
@@ -16,30 +16,30 @@ static inline void agregar_registro(const char* nombre_archivo) {
     printf("\n--- ALTA DE NUEVA EXCURSION ---\n");
 
     printf("Ingrese fecha de la excursion (DD/MM): ");
-    scanf("%49s", reg.fecha);
+    scanf_s("%49s", reg.fecha, (unsigned)sizeof reg.fecha);
     limpiar_buffer();
 
     printf("Ingrese tipo de excursion (A = Safari, B = Tiburones, C = Ballenas): ");
-    scanf("%c", &reg.tipo_excursion);
+    scanf_s("%c", &reg.tipo_excursion, (unsigned)sizeof reg.tipo_excursion);
     reg.tipo_excursion = (char)toupper((unsigned char)reg.tipo_excursion);
     limpiar_buffer();
 
     printf("Ingrese cantidad de personas: ");
-    while (scanf("%d", &reg.cant_personas) != 1 || reg.cant_personas <= 0) {
+    while (scanf_s("%d", &reg.cant_personas) != 1 || reg.cant_personas <= 0) {
         printf("[ERROR] Ingrese un numero entero positivo: ");
         limpiar_buffer();
     }
     limpiar_buffer();
 
     printf("Ingrese presupuesto por persona (USD): ");
-    while (scanf("%f", &reg.presupuesto) != 1 || reg.presupuesto < 0) {
+    while (scanf_s("%f", &reg.presupuesto) != 1 || reg.presupuesto < 0) {
         printf("[ERROR] Ingrese un presupuesto valido: ");
         limpiar_buffer();
     }
     limpiar_buffer();
 
     printf("Esta disponible / confirmada? (S/N): ");
-    scanf("%c", &respuesta_bool);
+    scanf_s("%c", &respuesta_bool, (unsigned)sizeof respuesta_bool);
     respuesta_bool = (char)toupper((unsigned char)respuesta_bool);
     reg.disponible = (respuesta_bool == 'S');
     limpiar_buffer();
