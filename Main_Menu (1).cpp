@@ -7,7 +7,7 @@
 
 void mostrar_menu(void) {
     printf("\n======================================================\n");
-    printf("        SISTEMA DE GESTION DE EXCURSIONES            \n");
+    printf("         SISTEMA DE GESTION DE EXCURSIONES            \n");
     printf("======================================================\n");
     printf("1. Agregar un registro al archivo\n");
     printf("2. Listar todo el archivo por pantalla\n");
