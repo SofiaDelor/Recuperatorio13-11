@@ -1,9 +1,9 @@
-#include "Inicio_Estructura.h"
-#include "CaseA_Agregar.h"
-#include "CaseB_ListarTodo.h"
-#include "CaseC_ListarCondicion.h"
-#include "CaseD_BuscarEspecial.h"
-#include "CaseE_DividirBooleano.h"
+#include "Inicio_Estructura (4).h"
+#include "CaseA_Agregar (2).h"
+#include "CaseB_ListarTodo (2).h"
+#include "CaseC_ListarCondicion (2).h"
+#include "CaseD_BuscarEspecial (2).h"
+#include "CaseE_DividirBooleano (2).h"
 
 static inline void mostrar_menu(void) {
     printf("\n======================================================\n");
@@ -24,7 +24,7 @@ int main(void) {
     do {
         mostrar_menu();
         printf("Seleccione una opcion (1-6): ");
-        if (scanf("%d", &opcion) != 1) {
+        if (scanf_s("%d", &opcion) != 1) {
             printf("[ERROR] Entrada invalida. Por favor ingrese un numero.\n");
             limpiar_buffer();
             continue;
@@ -58,3 +58,4 @@ int main(void) {
 
     return 0;
 }
+
