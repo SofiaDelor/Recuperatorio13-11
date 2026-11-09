@@ -1,7 +1,7 @@
 #ifndef CASEE_DIVIDIRBOOLEANO_H
 #define CASEE_DIVIDIRBOOLEANO_H
 
-#include "Inicio_Estructura.h"
+#include "Inicio_Estructura (4).h"
 
 static inline void dividir_archivo_por_booleano(const char* origen, const char* dest_true, const char* dest_false) {
     FILE* f_origen = fopen(origen, "r");
@@ -25,8 +25,8 @@ static inline void dividir_archivo_por_booleano(const char* origen, const char* 
     int disp_int;
     int cant_true = 0, cant_false = 0;
 
-    while (fscanf(f_origen, "%49s %c %f %d %d",
-        reg.fecha, &reg.tipo_excursion, &reg.presupuesto, &reg.cant_personas, &disp_int) == 5) {
+    while (fscanf_s(f_origen, "%49s %c %f %d %d",
+        reg.fecha, (unsigned)sizeof reg.fecha, &reg.tipo_excursion, (unsigned)sizeof reg.tipo_excursion, &reg.presupuesto, &reg.cant_personas, &disp_int) == 5) {
         reg.disponible = (bool)disp_int;
 
         if (reg.disponible) {
@@ -51,3 +51,4 @@ static inline void dividir_archivo_por_booleano(const char* origen, const char* 
 }
 
 #endif // CASEE_DIVIDIRBOOLEANO_H
+
