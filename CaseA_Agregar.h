@@ -3,7 +3,7 @@
 
 #include "Inicio_Estructura.h"
 
-void agregar_registro(const char* nombre_archivo) {
+static inline void agregar_registro(const char* nombre_archivo) {
     FILE* archivo = fopen(nombre_archivo, "a");
     if (archivo == NULL) {
         printf("[ERROR] No se pudo abrir el archivo para escritura.\n");
@@ -38,7 +38,7 @@ void agregar_registro(const char* nombre_archivo) {
     }
     limpiar_buffer();
 
-    printf("¿Esta disponible / confirmada? (S/N): ");
+    printf("Esta disponible / confirmada? (S/N): ");
     scanf("%c", &respuesta_bool);
     respuesta_bool = (char)toupper((unsigned char)respuesta_bool);
     reg.disponible = (respuesta_bool == 'S');
