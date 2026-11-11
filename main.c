@@ -27,7 +27,7 @@ int main(void) {
         if (scanf_s("%d", &opcion) != 1) {
             printf("[ERROR] Entrada invalida. Por favor ingrese un numero.\n");
             limpiar_buffer();
-            continue;
+            opcion = 0;
         }
         limpiar_buffer();
 
